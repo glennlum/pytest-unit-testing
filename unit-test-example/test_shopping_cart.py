@@ -20,3 +20,11 @@ def test_when_add_more_than_max_items_should_fail():
         cart.add("apple")
     with pytest.raises(OverflowError):
         cart.add("apple")
+
+
+def test_can_get_total_price():
+    cart = ShoppingCart(5)
+    cart.add("apple")
+    cart.add("orange")
+    price_map = {"apple": 1.0, "orange": 2.0}
+    assert cart.get_total_price(price_map) == 3.0
